@@ -167,7 +167,7 @@ Piece Piezas::gameState()
   {
     for(int j=0; j<BOARD_ROWS;j++)
     {
-      if(board[i][j] == X)
+      if(board[j][i] == X)
       {
         X_count++;
         if(X_count > max_X)
@@ -176,7 +176,7 @@ Piece Piezas::gameState()
         }
         O_count = 0;
       }
-      else if(board[i][j] == O)
+      else if(board[j][i] == O)
       {
         O_count++;
         if(O_count > max_O)
