@@ -162,6 +162,11 @@ Piece Piezas::gameState()
       }
     }
   }
+ 
+  O_count = 0;
+  X_count = 0;
+//  max_O = 0;
+//  max_X = 0;
 
   for(int i=0; i<BOARD_COLS; i++)
   {

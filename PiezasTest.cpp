@@ -120,20 +120,4 @@ TEST(PiezasTest, Xwinverticheck)
 	ASSERT_TRUE(pie.gameState() == X);
 }
 
-TEST(PiezasTest, Owinhoricheck)
-{
-  pie.reset();
-  pie.dropPiece(0); //o
-  pie.dropPiece(0); //x
-  pie.dropPiece(1); //o
-  pie.dropPiece(1); //x
-  pie.dropPiece(2); //o
-  pie.dropPiece(1); //x
-  pie.dropPiece(3); //o
-  pie.dropPiece(2); //x
-  pie.dropPiece(3); //o
-  pie.dropPiece(1); //x
-  pie.dropPiece(3); //o
-  pie.dropPiece(2); //x
-	ASSERT_TRUE(pie.gameState() == O);
-}
+
