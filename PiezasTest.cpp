@@ -24,71 +24,60 @@ TEST(PiezasTest, sanityCheck)
 
 TEST(PiezasTest, outofboundscheck1)
 {
-  pie.dropPiece(4);
-	ASSERT_TRUE(Invalid);
+	ASSERT_TRUE(pie.dropPiece(4) == Invalid);
 }
 
 TEST(PiezasTest, outofboundscheck2)
 {
-  pie.dropPiece(-1);
-	ASSERT_TRUE(Invalid);
+	ASSERT_TRUE(pie.dropPiece(-1) == Invalid);
 }
 
 TEST(PiezasTest, placecheck1)
 {
-  pie.dropPiece(0); //x
-	ASSERT_TRUE(X);
+	ASSERT_TRUE(pie.dropPiece(0) == X); //x
 }
 
 TEST(PiezasTest, placecheck2)
 {
-  pie.dropPiece(0); //o
-	ASSERT_TRUE(O);
+	ASSERT_TRUE(pie.dropPiece(0) == O); //o
 }
 
 TEST(PiezasTest, placecheck3)
 {
   pie.dropPiece(0); //x
-  pie.dropPiece(0); //o
-	ASSERT_TRUE(Blank);
+	ASSERT_TRUE(pie.dropPiece(0) == Blank);//o
 }
 
 TEST(PiezasTest, getcheck1)
 {
-  pie.pieceAt(0,0);
-	ASSERT_TRUE(X);
+	ASSERT_TRUE(pie.pieceAt(0,0) == X);
 }
 
 TEST(PiezasTest, getcheck2)
 {
-  pie.pieceAt(1,0);
-	ASSERT_TRUE(O);
+	ASSERT_TRUE(pie.pieceAt(1,0) == O);
 }
 
 TEST(PiezasTest, getcheck3)
 {
-  pie.pieceAt(2,0);
-	ASSERT_TRUE(X);
+	ASSERT_TRUE(pie.pieceAt(2,0) == X);
 }
 
 TEST(PiezasTest, getoobcheck)
 {
-  pie.pieceAt(3,0);
-	ASSERT_TRUE(Invalid);
+	ASSERT_TRUE(pie.pieceAt(3,0) == Invalid);
 }
 
 TEST(PiezasTest, resetcheck)
 {
   pie.reset();
-  pie.pieceAt(0,0);
-	ASSERT_TRUE(Blank);
+	ASSERT_TRUE(pie.pieceAt(0,0) == Blank);
 }
 
 TEST(PiezasTest, gamestatecheck)
 {
   pie.dropPiece(0); //x
-  pie.gameState();
-	ASSERT_TRUE(Invalid);
+	ASSERT_TRUE(pie.gameState() == Invalid);
 }
 
 TEST(PiezasTest, tiecheck)
