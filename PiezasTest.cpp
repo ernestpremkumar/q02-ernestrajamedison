@@ -77,18 +77,26 @@ TEST(PiezasTest, resetcheck)
 TEST(PiezasTest, gamestatecheck)
 {
   pie.dropPiece(0); //x
+  pie.dropPiece(0); //o
 	ASSERT_TRUE(pie.gameState() == Invalid);
 }
 
 TEST(PiezasTest, tiecheck)
 {
-  pie.dropPiece(1); //o
+  pie.reset();
   pie.dropPiece(0); //x
   pie.dropPiece(1); //o
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
   pie.dropPiece(0); //x
   pie.dropPiece(1); //o
-  pie.gameState();
-	ASSERT_TRUE(Blank);
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
+  pie.dropPiece(0); //x
+  pie.dropPiece(1); //o
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
+	ASSERT_TRUE(pie.gameState() == Blank);
 }
 
 TEST(PiezasTest, Xwinverticheck)
@@ -96,11 +104,20 @@ TEST(PiezasTest, Xwinverticheck)
   pie.reset();
   pie.dropPiece(0); //x
   pie.dropPiece(1); //o
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
   pie.dropPiece(0); //x
+  pie.dropPiece(1); //o
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
+  pie.dropPiece(0); //x
+  pie.dropPiece(0); //o
+  pie.dropPiece(2); //x
   pie.dropPiece(2); //o
-  pie.dropPiece(0); //x
-  pie.gameState();
-	ASSERT_TRUE(X);
+  pie.dropPiece(1); //x
+  pie.dropPiece(2); //o
+  pie.dropPiece(3); //x
+	ASSERT_TRUE(pie.gameState() == X);
 }
 
 TEST(PiezasTest, Owinhoricheck)
@@ -109,10 +126,14 @@ TEST(PiezasTest, Owinhoricheck)
   pie.dropPiece(0); //o
   pie.dropPiece(0); //x
   pie.dropPiece(1); //o
-  pie.dropPiece(0); //x
+  pie.dropPiece(1); //x
   pie.dropPiece(2); //o
   pie.dropPiece(1); //x
   pie.dropPiece(3); //o
-  pie.gameState();
-	ASSERT_TRUE(O);
+  pie.dropPiece(2); //x
+  pie.dropPiece(3); //o
+  pie.dropPiece(1); //x
+  pie.dropPiece(3); //o
+  pie.dropPiece(2); //x
+	ASSERT_TRUE(pie.gameState() == O);
 }
